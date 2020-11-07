@@ -1,0 +1,27 @@
+<div *ngIf="user; else loading">
+    <div class="product">
+        <div class="header right">
+            <button routerLink="/dashboard" class="btn btn-dark">Back</button>
+        </div>
+
+        <div class="flex">
+            <div class="item text-center">
+             <h1>Information:</h1>
+             <h4>Title: {{ user.title}}</h4><hr>
+             <h4>Type: {{ user.type}}</h4><hr>
+             <h4>Min: {{ user.min}}</h4><hr>
+             <h4>Max: {{ user.max}}</h4><hr> 
+             <h4>MaxLength: {{ user.maxLength}}</h4><hr>
+             <h4>IsRequire: {{ user.isRequired}}</h4><hr>
+             <h4>Order: {{ user.order}}</h4><hr>
+             <h4>Created: {{ user.created_at | date: "short"}}</h4>
+             <h4>Updated: {{ user.updated_at | date: "short"}}</h4>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Loading...</p>
+</ng-template>

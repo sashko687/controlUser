@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h2 class="text-center">Add user</h2>
+
+  <div class="form-control">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" />
+    <div
+      *ngIf="form.get('title').touched && form.get('title').invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('title').errors.required">Enter title</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="type">Type</label>
+    <input id="type" type="text" formControlName="type" />
+    <div
+      *ngIf="form.get('type').touched && form.get('type').invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('type').errors.required">Enter type</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="min">Min</label>
+    <input id="min" type="number" formControlName="min" />
+  </div>
+
+  <div class="form-control">
+    <label for="max">Max</label>
+    <input id="max" type="number" formControlName="max" />
+  </div>
+
+  <div class="form-control">
+    <label for="maxLength">MaxLength</label>
+    <input id="maxLength" type="number" formControlName="maxLength" />
+  </div>
+
+  <div class="form-control">
+    <label for="isRequired">Is Required</label>
+    <input id="isRequired" type="text" formControlName="isRequired" />
+    <div
+      *ngIf="form.get('isRequired').touched && form.get('isRequired').invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('isRequired').errors.required">Required</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="order">Order</label>
+    <input id="order" type="text" formControlName="order" />
+    <div
+      *ngIf="form.get('order').touched && form.get('order').invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('order').errors.required">Please order</small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary btn-block"
+    [disabled]="form.invalid || submitted"
+  >
+    Add
+  </button>
+</form>

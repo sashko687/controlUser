@@ -1,0 +1,39 @@
+<div *ngIf="users.length; else loading">
+    <h2 class="text-center">List or record</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Date of creation</th>
+                <th>Info</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let user of users ; let idx = index">
+                <td>{{ idx + 1 }}</td>
+                <td>{{ user.title }}</td>
+                <td>{{ user.type }}</td>
+                <td>{{ user.created_at | date: "short"}}</td>
+                <td>
+                    <button class="btn btn-success" [routerLink]="['/','user',user.id]">Info</button>
+                </td>
+                <td>
+                    <button class="btn btn-light" [routerLink]="['/','user',user.id,'edit']">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="remove(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Loading...</p>
+</ng-template>
