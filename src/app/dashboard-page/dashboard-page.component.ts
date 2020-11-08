@@ -17,7 +17,6 @@ export class DashboardPageComponent implements OnInit {
   users = [];
   pSub: Subscription;
   rSub: Subscription;
-  productName;
 
   constructor(private userServ: UserService, private cdr: ChangeDetectorRef) {}
 
